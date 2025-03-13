@@ -1,0 +1,15 @@
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\bin\Debug\net8.0\Knapsack.exe
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\bin\Debug\net8.0\Knapsack.deps.json
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\bin\Debug\net8.0\Knapsack.runtimeconfig.json
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\bin\Debug\net8.0\Knapsack.dll
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\bin\Debug\net8.0\Knapsack.pdb
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\obj\Debug\net8.0\Knapsack.GeneratedMSBuildEditorConfig.editorconfig
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\obj\Debug\net8.0\Knapsack.AssemblyInfoInputs.cache
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\obj\Debug\net8.0\Knapsack.AssemblyInfo.cs
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\obj\Debug\net8.0\Knapsack.csproj.CoreCompileInputs.cache
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\obj\Debug\net8.0\Knapsack.sourcelink.json
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\obj\Debug\net8.0\Knapsack.dll
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\obj\Debug\net8.0\refint\Knapsack.dll
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\obj\Debug\net8.0\Knapsack.pdb
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\obj\Debug\net8.0\Knapsack.genruntimeconfig.cache
+D:\.net_java_cz_15.15_275409\Lab1\Knapsack\obj\Debug\net8.0\ref\Knapsack.dll
