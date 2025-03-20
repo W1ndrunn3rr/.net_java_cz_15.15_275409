@@ -1,0 +1,104 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0-windows7.0": {
+      "Knapsack/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Knapsack.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Knapsack.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Knapsack/1.0.0": {
+      "type": "project",
+      "path": "../../Knapsack/Knapsack.csproj",
+      "msbuildProject": "../../Knapsack/Knapsack.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0-windows7.0": [
+      "Knapsack >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\w1ndr\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\.net_java_cz_15.15_275409\\Lab1\\GUI\\GUI\\GUI.csproj",
+      "projectName": "GUI",
+      "projectPath": "D:\\.net_java_cz_15.15_275409\\Lab1\\GUI\\GUI\\GUI.csproj",
+      "packagesPath": "C:\\Users\\w1ndr\\.nuget\\packages\\",
+      "outputPath": "D:\\.net_java_cz_15.15_275409\\Lab1\\GUI\\GUI\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\w1ndr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "projectReferences": {
+            "D:\\.net_java_cz_15.15_275409\\Lab1\\Knapsack\\Knapsack.csproj": {
+              "projectPath": "D:\\.net_java_cz_15.15_275409\\Lab1\\Knapsack\\Knapsack.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net8.0-windows7.0": {
+        "targetAlias": "net8.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Users\\w1ndr\\.dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

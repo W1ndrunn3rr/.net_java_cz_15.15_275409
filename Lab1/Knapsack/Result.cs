@@ -26,14 +26,14 @@ public class Result
 
     public new string ToString()
     {
-        string returnString = "Items: ";
+        string returnString = "Przedmioty: ";
 
         foreach (int i in _backpack)
         {
             returnString += i + " ";
         }
         
-        return returnString + $"\nTotal value: {_sumValue}\nTotal weight: {_sumWeight}";
+        return returnString + $"\r\nCałkowita wartość: {_sumValue}\r\nWaga całkowita: {_sumWeight}";
     }
     
     

@@ -1,6 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("UnitTests")]
+[assembly: InternalsVisibleTo("UnitTests"), InternalsVisibleTo("GUI")]
+
 namespace Lab1;
 
 public struct Item
@@ -32,7 +33,7 @@ public class Problem
         {
                 string returnString = "";
                 foreach (var item in _itemList)
-                        returnString += $"{item.Id}. Item value: {item.Value} | Item wage: {item.Weight}\n";
+                        returnString += $"{item.Id}. Wartość : {item.Value} | Waga : {item.Weight}\r\n";
                 return returnString;
         }
 

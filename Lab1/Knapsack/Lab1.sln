@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knapsack", "Knapsack.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "..\Tests\UnitTests\UnitTests.csproj", "{5631A43B-D784-4F15-9AC3-90DEFB186E07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "..\GUI\GUI\GUI.csproj", "{161F4AF9-4A97-4064-A522-8F9A55042730}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +20,10 @@ Global
 		{5631A43B-D784-4F15-9AC3-90DEFB186E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5631A43B-D784-4F15-9AC3-90DEFB186E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5631A43B-D784-4F15-9AC3-90DEFB186E07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{161F4AF9-4A97-4064-A522-8F9A55042730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161F4AF9-4A97-4064-A522-8F9A55042730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161F4AF9-4A97-4064-A522-8F9A55042730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161F4AF9-4A97-4064-A522-8F9A55042730}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
