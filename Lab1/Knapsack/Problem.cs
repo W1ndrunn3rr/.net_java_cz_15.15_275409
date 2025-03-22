@@ -4,6 +4,7 @@
 
 namespace Lab1;
 
+// Struktura opisujaca pojedynczy przedmiot : jego id, wartosc oraz wage
 public struct Item
 {
         private int _id,_value, _weight;
@@ -12,10 +13,14 @@ public struct Item
         public int Weight { get => _weight; set => _weight = value; }
 }
 
+// Klasa opisujaca problem plecakowy i implementujaca interfejs jego rozwiazania
 public class Problem
 {
+        // lista przedmiotow w "plecaku"
         private readonly List<Item> _itemList;
 
+        // Konstruktor klasy implementujacy problem plecakowy - zapelnienie listy n elementami o losowych wagach
+        // oraz wartosciach z zakresu 1-10
         public Problem(int n, int seed)
         {
                 _itemList = new List<Item>();
@@ -24,19 +29,24 @@ public class Problem
                         _itemList!.Add(new Item {Id = i, Value = rand.Next(1,10), Weight = rand.Next(1,10) });
         }
 
+        // Pomocniczy konstruktor do mock testow
         public Problem(List<Item> items)
         {
          _itemList = items;       
         }
 
+        // Przeciazona metoda ToString, pozwalajaca na reprezentacje klasy w formie napisu (stringa)
         public new string ToString()
         {
                 string returnString = "";
                 foreach (var item in _itemList)
-                        returnString += $"{item.Id}. Wartość : {item.Value} | Waga : {item.Weight}\r\n";
+                        returnString += $"{item.Id}. Wartosc : {item.Value} | Waga : {item.Weight}\r\n";
                 return returnString;
         }
 
+        // Metoda implementujaca rozwiazanie problemu plecakowego metodą zachlanna - sortowanie 
+        // po wspolczynniku wartosc/waga od wartosci najwiekszej i pobieranie elementow z listy
+        // o ile jest na nie miejsce w liscie reprezentujacej "plecak"
         public Result Solve(int capacity)
         {
                 Result result = new Result();

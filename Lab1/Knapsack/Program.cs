@@ -1,7 +1,9 @@
 ﻿namespace Lab1;
 
+// Główna klasa programu
 class Program
 {
+    // Glowna metoda programu
     static void Main()
     {
         string userInput;
@@ -9,8 +11,11 @@ class Program
         
         Random rng = new Random();
 
+        // Try/catch do obslugi testow 
         try
         {
+            // Pobranie od uzytkownika ziarna, liczby przedmitów i pojemnosci - jesli ich nie poda
+            // losowana jest liczba od 0 do Int32.MaxValue (dla ziarna i pojemnosci)
             Console.WriteLine("Pass RNG seed: ");
             userInput = Console.ReadLine()!;
             seed = userInput.Length == 0 ? rng.Next(0, Int32.MaxValue) : int.Parse(userInput);
@@ -24,6 +29,7 @@ class Program
       
         Console.WriteLine($"-------------------------\nINFO\nCapacity : {capacity}\nSeed: {seed}\nMax N : {maxN}\n-------------------------\n");
         
+        // Stworzenie problemu i rozwiazanie + pomocnicze wypisanie na terminal
         seed = seed > 0 ? seed : 0;
         maxN = maxN > 0 ? maxN : Int32.MaxValue;
         Problem problem = new Problem(maxN, seed);
