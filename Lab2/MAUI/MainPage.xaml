@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:API;assembly=API_DB"
+             x:Class="MAUI.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="pokebola.png"
+                HeightRequest="200"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a race car number eight" />
+
+            <Label
+                Text="Check your favourite Pokemon!"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+            
+            <Entry
+                x:Name = "PokemonNameEntry"
+                Placeholder="Pikachu"
+                FontSize="24"
+            ></Entry>
+            
+            <Button
+                x:Name="ApiCallButton"
+                FontSize="18"
+                Text="Check" 
+                SemanticProperties.Hint="Checks the api"
+                Clicked="ApiCallButton_OnClicked"
+                HorizontalOptions="Fill" />
+            
+            <Frame>
+                <Label
+                    FontSize="18"
+                    x:Name="PokemonLabel" Text="" />
+            </Frame>
+            
+            <Button
+                x:Name="AddToCollection"
+                FontSize="18"
+                Text="Add to collection"
+                SemanticProperties.Hint="Adds pokemon to collection"
+                Clicked="AddToCollection_OnClicked"
+                HorizontalOptions="Fill" />
+  
+            <Button
+                x:Name="DisplayCollection"
+                FontSize="18"
+                Text="Display collection"
+                SemanticProperties.Hint="Display collections"
+                Clicked="DisplayCollection_OnClicked"
+                HorizontalOptions="Fill" />
+            <Label
+                x:Name="CollectionLabel"
+                Text="Collection"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+            <ScrollView>
+                <ListView
+                    x:Name="PokemonList"
+                    SeparatorColor="Black"
+                    BackgroundColor="Transparent"
+                    
+                ></ListView>
+                    
+            </ScrollView>
+            <Button
+                x:Name="RemoveFromCollection"
+                FontSize="18"
+                Text="Remove from collection"
+                SemanticProperties.Hint="Removes pokemon to collection"
+                Clicked="RemoveFromCollection_OnClicked"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

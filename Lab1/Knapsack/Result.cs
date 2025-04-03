@@ -41,6 +41,4 @@ public class Result
         
         return returnString + $"\r\nCałkowita wartość: {_sumValue}\r\nWaga całkowita: {_sumWeight}";
     }
-    
-    
 }
