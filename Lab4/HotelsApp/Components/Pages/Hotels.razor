@@ -1,0 +1,151 @@
+﻿@page "/hotels"
+@attribute [StreamRendering]
+@using HotelsApp.Data
+@using Microsoft.EntityFrameworkCore
+@inject ApplicationDbContext DbContext
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<PageTitle>Hotele</PageTitle>
+<h1 class="mb-4">Oceń hotele</h1>
+<div>
+    <input class="form-control" placeholder="Apartament Full Wypas"
+           @bind="_searchTerm" @bind:event="oninput" />
+</div>
+@if (_hotels == null)
+{
+    <p>Ładowanie danych...</p>
+}
+else if (!_hotels.Any())
+{
+    <p>Brak hoteli do wyświetlenia</p>
+}
+else
+{
+    <div class="hotel-grid">
+        @foreach (var hotel in DisplayedHotels)
+        {
+            <div class="hotel-card" @onclick="() => NavigateToHotel(hotel.Id)">
+                <div class="hotel-image-container">
+                    <img src="@hotel.ImageUrl" alt="@hotel.HotelName" class="hotel-image" />
+                </div>
+                <div class="hotel-info">
+                    <h3 class="hotel-name">@hotel.HotelName</h3>
+                    <div class="hotel-rating">
+                        <span class="rating-value">@GetAverageRating(hotel.HotelName).ToString("0.0")</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-location">@hotel.Location</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private List<HotelReview>? _hotels;
+    private string _searchTerm = "";
+    protected override async Task OnInitializedAsync()
+    {
+        _hotels = await DbContext.HotelReviews
+            .GroupBy(review => review.HotelName)
+            .Select(group => group.First())
+            .ToListAsync();
+    }
+    
+    private IEnumerable<HotelReview> DisplayedHotels
+    {
+        get
+        {
+            var query = _hotels!.AsEnumerable();
+            
+            if (!string.IsNullOrWhiteSpace(_searchTerm))
+            {
+                query = query.Where(review => review.HotelName.Contains(_searchTerm, StringComparison.OrdinalIgnoreCase));
+            }
+
+            return query;
+        }
+    }
+
+    private float GetAverageRating(string hotelName)
+    {
+        return DbContext.HotelReviews
+            .Where(review => review.HotelName == hotelName)
+            .Average(review => review.Rating);
+    }
+
+    private void NavigateToHotel(int hotelId)
+    {
+        NavigationManager.NavigateTo($"/hotel-details/{hotelId}");
+    }
+}
+
+<style>
+    .hotel-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .hotel-card {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        background: white;
+    }
+
+    .hotel-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .hotel-image-container {
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .hotel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .hotel-card:hover .hotel-image {
+        transform: scale(1.05);
+    }
+
+    .hotel-info {
+        padding: 15px;
+    }
+
+    .hotel-name {
+        margin: 0 0 10px 0;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .hotel-rating {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .rating-value {
+        font-weight: bold;
+        color: #ff9800;
+    }
+
+    .rating-star {
+        color: #ff9800;
+    }
+
+    .rating-location {
+        margin-left: auto;
+        color: #666;
+        font-size: 0.9rem;
+    }
+</style>

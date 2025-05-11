@@ -1,0 +1,95 @@
+@page "/add-review/{hotelId:int}"
+@using HotelsApp.Data
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.EntityFrameworkCore
+@attribute [Authorize]
+@inject ApplicationDbContext DbContext
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@rendermode InteractiveServer
+
+<PageTitle>Dodaj recenzję</PageTitle>
+<button class="btn-primary my-3" @onclick='() => NavigationManager.NavigateTo($"/hotel-details/{_hotelReview?.Id}")'>Powrót</button>
+<h1>Dodaj recenzję</h1>
+
+@if (_hotelReview == null)
+{
+    <p>Ładowanie...</p>
+}
+else
+{
+    <div class="review-form">
+        <div class="form-group">
+            <label>Ocena (0-10):</label>
+            <input type="number" min="0" max="10" step="0.1" @bind="_newReview.Rating" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Data wizyty:</label>
+            <input type="date" @bind="_newReview.VisitDate" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Opis:</label>
+            <textarea @bind="_newReview.Description" class="form-control" rows="5"></textarea>
+        </div>
+        <button @onclick="SubmitReview" class="btn btn-primary">Zapisz recenzję</button>
+    </div>
+}
+
+@code {
+    [Parameter] public int HotelId { get; set; }
+    private HotelReview? _hotelReview;
+    private HotelReview _newReview = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _hotelReview = await DbContext.HotelReviews.FirstOrDefaultAsync(h => h.Id == HotelId);
+        
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        
+        _newReview.HotelName = _hotelReview?.HotelName;
+        _newReview.Location = _hotelReview?.Location;
+        _newReview.ImageUrl = _hotelReview?.ImageUrl;
+        _newReview.UserName = user.Identity?.Name;
+        _newReview.VisitDate = DateTime.Now;
+    }
+
+    private async Task SubmitReview()
+    {
+        DbContext.HotelReviews.Add(_newReview);
+        await DbContext.SaveChangesAsync();
+        NavigationManager.NavigateTo($"/hotel-details/{HotelId}");
+    }
+}
+
+<style>
+    .review-form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    .btn {
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>

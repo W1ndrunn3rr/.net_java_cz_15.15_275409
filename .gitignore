@@ -83,3 +83,5 @@ tools/
 
 # Ignore JetBrains Rider cache
 .idea_modules/
+
+secrets.json

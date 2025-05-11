@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{968907A7-E37C-44E6-84D4-930311424CBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelsApp", "HotelsApp\HotelsApp.csproj", "{5059D105-020C-4EA9-965A-1CDF2F5C3AEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{968907A7-E37C-44E6-84D4-930311424CBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{968907A7-E37C-44E6-84D4-930311424CBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{968907A7-E37C-44E6-84D4-930311424CBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{968907A7-E37C-44E6-84D4-930311424CBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5059D105-020C-4EA9-965A-1CDF2F5C3AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5059D105-020C-4EA9-965A-1CDF2F5C3AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5059D105-020C-4EA9-965A-1CDF2F5C3AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5059D105-020C-4EA9-965A-1CDF2F5C3AEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

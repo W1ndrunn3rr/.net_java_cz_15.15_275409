@@ -60,17 +60,5 @@ class Program
             
             Console.WriteLine("\n========================================\nTHREADS\n========================================\n");
             Run(MatrixCalculations.ThreadMultiplyMatrixes);
-        
-        
-        
-            //Console.WriteLine($"Macierz m1: \n{m1.ToString()}\nMacierz m2: \n{m2.ToString()}");
-            
-           
-        
-            
-            //Console.WriteLine($"Macierz wynikowa: \n{m3.ToString()}");
-
-            //Console.WriteLine("Czas wykonania={0}", sw.Elapsed);
-        // } 
     }
 }

@@ -1,0 +1,135 @@
+@page "/hotel-details/{id:int}"
+@using GoogleMapsComponents
+@using HotelsApp.Data
+@using Microsoft.EntityFrameworkCore
+@attribute [StreamRendering]
+@inject ApplicationDbContext DbContext
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<PageTitle>Szczegóły hotelu</PageTitle>
+<button class="btn-primary my-3" @onclick='() => NavigationManager.NavigateTo("/hotels")'>Powrót</button>
+@if (_hotel == null)
+{
+    <p>Ładowanie...</p>
+}
+else
+{
+    <div class="hotel-details">
+        <img src="@_hotel.ImageUrl" alt="@_hotel.HotelName" class="details-image"/>
+        <h1>@_hotel.HotelName</h1>
+        <div class="location">@_hotel.Location</div>
+
+        <div class="average-rating">
+            Średnia ocena: <span class="rating">@GetAverageRating().ToString("0.0")</span>/10
+        </div>
+        
+        <div class="my-5" >
+        <Map lat=52 lng=19></Map>
+        </div>
+        
+        <div class="align-content-center text-md-center">
+            <button @onclick='() => NavigationManager.NavigateTo($"/add-review/{Id}")'
+                    class="btn btn-primary shadow">
+                <i class="bi bi-pencil-square me-2"></i>
+                Dodaj swoją recenzję
+            </button>
+        </div>
+
+        <h2>Recenzje</h2>
+        <div class="reviews">
+            @foreach (var review in GetReviews())
+            {
+                <div class="review">
+                    <div class="review-header">
+                        <span class="user">@review.UserName</span>
+                        <span class="date">@review.VisitDate.ToShortDateString()</span>
+                        <span class="rating">@review.Rating.ToString("0.0")/10</span>
+                    </div>
+                    <p class="review-text">@review.Description</p>
+                </div>
+            }
+        </div>
+    </div>
+    
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private HotelReview? _hotel;
+    protected override async Task OnInitializedAsync()
+    {
+        _hotel = await DbContext.HotelReviews.FirstOrDefaultAsync(h => h.Id == Id);
+    }
+
+    private float GetAverageRating()
+    {
+        return DbContext.HotelReviews
+            .Where(h => h.HotelName == _hotel!.HotelName)
+            .Average(h => h.Rating);
+    }
+
+    private List<HotelReview> GetReviews()
+    {
+        return DbContext.HotelReviews
+            .Where(h => h.HotelName == _hotel!.HotelName)
+            .ToList();
+    }
+}
+}
+
+
+<style>
+    .hotel-details {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .details-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .location {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .average-rating {
+        font-size: 1.3rem;
+        margin: 20px 0;
+    }
+
+    .rating {
+        font-weight: bold;
+        color: #ff9800;
+    }
+
+    .reviews {
+        margin-top: 30px;
+    }
+
+    .review {
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+    }
+
+    .review-header {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 10px;
+        align-items: center;
+    }
+
+    .user {
+        font-weight: bold;
+    }
+
+    .date {
+        color: #666;
+    }
+</style>

@@ -1,0 +1,38 @@
+@page "/map"
+@using GoogleMapsComponents
+@using GoogleMapsComponents.Maps
+
+<div>
+    <GoogleMap @ref="_map1" Options="@mapOptions"  OnAfterInit="AfterMapRender"></GoogleMap>
+</div>
+@functions {
+    private GoogleMap _map1;
+    private MapOptions mapOptions;
+    private LatLngBounds _bounds;
+    
+    [Parameter]
+    public double lat { get; set; }
+
+    [Parameter]
+    public double lng { get; set; }
+
+    protected override void OnInitialized()
+    {
+        _map1 = new GoogleMap();
+        mapOptions = new MapOptions()
+        {
+            Zoom = 6,
+            Center = new LatLngLiteral()
+            {
+                Lat = lat,
+                Lng = lng
+            },
+            MapTypeId = MapTypeId.Roadmap
+        };
+    }
+
+    private async Task AfterMapRender()
+    {
+        _bounds = await LatLngBounds.CreateAsync(_map1.JsRuntime);
+    }
+}

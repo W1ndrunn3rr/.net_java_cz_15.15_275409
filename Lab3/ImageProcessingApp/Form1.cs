@@ -81,7 +81,7 @@ public static class Operations
 
 public partial class Form1 : Form
 {
-    private Bitmap? image;
+    private Bitmap? _image;
     public Form1()
     {
         InitializeComponent();
@@ -92,8 +92,8 @@ public partial class Form1 : Form
         openFileDialog1.ShowDialog();
         var file = openFileDialog1.FileName;
         
-        image = new Bitmap(file);
-        pictureBoxOrg.Image = image;
+        _image = new Bitmap(file);
+        pictureBoxOrg.Image = _image;
         pictureBoxOrg.SizeMode = PictureBoxSizeMode.StretchImage;
         
     }
@@ -108,7 +108,7 @@ public partial class Form1 : Form
     
         for (int i = 0; i < 4; i++)
         {
-            sourceImages[i] = new Bitmap(image!); 
+            sourceImages[i] = new Bitmap(_image!); 
             results[i] = new Bitmap(sourceImages[i].Width, sourceImages[i].Height);
         }
 
