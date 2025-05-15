@@ -1,21 +1,22 @@
 @page "/map"
 @using GoogleMapsComponents
 @using GoogleMapsComponents.Maps
+@inject ILogger<Map> Logger
 
 <div>
-    <GoogleMap @ref="_map1" Options="@mapOptions"  OnAfterInit="AfterMapRender"></GoogleMap>
+    <GoogleMap @ref="_map1" Options="@mapOptions" OnAfterInit="AfterMapRender"></GoogleMap>
 </div>
-@functions {
+
+@code {
     private GoogleMap _map1;
     private MapOptions mapOptions;
     private LatLngBounds _bounds;
+    private double _lat = 52;
+    private double _lng = 19;
+
+    [Parameter]
+    public required string Place { get; set; }
     
-    [Parameter]
-    public double lat { get; set; }
-
-    [Parameter]
-    public double lng { get; set; }
-
     protected override void OnInitialized()
     {
         _map1 = new GoogleMap();
@@ -24,11 +25,13 @@
             Zoom = 6,
             Center = new LatLngLiteral()
             {
-                Lat = lat,
-                Lng = lng
+                Lat = _lat,
+                Lng = _lng
             },
             MapTypeId = MapTypeId.Roadmap
         };
+      
+        
     }
 
     private async Task AfterMapRender()

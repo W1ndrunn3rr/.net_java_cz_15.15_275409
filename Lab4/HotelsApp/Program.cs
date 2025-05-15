@@ -26,6 +26,9 @@ builder.Services.AddAuthentication(options =>
     })
     .AddIdentityCookies();
 
+builder.Logging.AddConsole();
+builder.Logging.AddDebug();  
+
 var secrets = new ConfigurationBuilder()
     .AddJsonFile("secrets.json", optional: true)
     .Build();
