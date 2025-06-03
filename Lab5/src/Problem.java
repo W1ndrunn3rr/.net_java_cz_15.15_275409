@@ -9,8 +9,8 @@ public class Problem {
         this.itemList = new ArrayList<>();
         Random rand = new Random(seed);
         for (int i = 0; i < n; i++) {
-            int value = rand.nextInt(10) + 1;  // 1-10
-            int weight = rand.nextInt(10) + 1; // 1-10
+            int value = rand.nextInt(10) + 1;
+            int weight = rand.nextInt(10) + 1;
             itemList.add(new Item(i, value, weight));
         }
     }

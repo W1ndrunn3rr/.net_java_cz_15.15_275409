@@ -1,0 +1,40 @@
+cze 03, 2025 6:04:40 PM com.example.lab6.FileLogger Log
+INFO: Użytkownik załadował plik
+cze 03, 2025 6:09:08 PM com.example.lab6.FileLogger Log
+INFO: Aplikacja została uruchomiona
+cze 03, 2025 6:09:30 PM com.example.lab6.FileLogger Log
+INFO: Użytkownik załadował plik
+cze 03, 2025 6:09:49 PM com.example.lab6.FileLogger Log
+INFO: Wykonano operację : Progowanie
+cze 03, 2025 6:10:00 PM com.example.lab6.FileLogger Log
+INFO: Wykonano operację : Konturowanie
+cze 03, 2025 6:15:22 PM com.example.lab6.FileLogger Log
+INFO: Aplikacja została uruchomiona
+cze 03, 2025 6:15:32 PM com.example.lab6.FileLogger Log
+INFO: Użytkownik załadował plik
+cze 03, 2025 6:15:33 PM com.example.lab6.FileLogger Log
+WARNING: Nie wybrano operacji do wykonania
+cze 03, 2025 6:15:33 PM com.example.lab6.FileLogger Log
+INFO: Wykonano operację : null
+cze 03, 2025 6:15:39 PM com.example.lab6.FileLogger Log
+INFO: Wykonano operację : Progowanie
+cze 03, 2025 6:15:40 PM com.example.lab6.FileLogger Log
+INFO: Wykonano operację obrotu w lewo o 90 stopni
+cze 03, 2025 6:15:41 PM com.example.lab6.FileLogger Log
+INFO: Wykonano operację obrotu w prawo o 90 stopni
+cze 03, 2025 6:15:41 PM com.example.lab6.FileLogger Log
+INFO: Wykonano operację skalowania
+cze 03, 2025 6:15:48 PM com.example.lab6.FileLogger Log
+INFO: Wykonano operację obrotu w prawo o 90 stopni
+cze 03, 2025 6:15:48 PM com.example.lab6.FileLogger Log
+INFO: Wykonano operację obrotu w prawo o 90 stopni
+cze 03, 2025 6:15:49 PM com.example.lab6.FileLogger Log
+INFO: Wykonano operację obrotu w prawo o 90 stopni
+cze 03, 2025 6:15:53 PM com.example.lab6.FileLogger Log
+INFO: Wykonano operację : Negatyw
+cze 03, 2025 6:15:54 PM com.example.lab6.FileLogger Log
+INFO: Zapisano obraz do pliku
+cze 03, 2025 6:18:00 PM com.example.lab6.FileLogger Log
+INFO: Aplikacja została uruchomiona
+cze 03, 2025 6:18:02 PM com.example.lab6.FileLogger Log
+INFO: Aplikacja została zamknięta

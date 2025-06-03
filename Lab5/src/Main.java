@@ -4,7 +4,7 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         String userInput;
-        int seed, liczbaPrzedmiotow, pojemnosc;
+        int seed, itemCount, capacity;
 
         Random rng = new Random();
 
@@ -15,27 +15,27 @@ public class Main {
             seed = userInput.isEmpty() ? rng.nextInt(Integer.MAX_VALUE) : Integer.parseInt(userInput);
 
             System.out.println("Podaj liczbę przedmiotów: ");
-            liczbaPrzedmiotow = Integer.parseInt(scanner.nextLine());
+            itemCount = Integer.parseInt(scanner.nextLine());
 
             System.out.println("Podaj pojemność plecaka (lub wciśnij Enter, aby wylosować): ");
             userInput = scanner.nextLine();
-            pojemnosc = userInput.isEmpty() ? rng.nextInt(Integer.MAX_VALUE) : Integer.parseInt(userInput);
+            capacity = userInput.isEmpty() ? rng.nextInt(Integer.MAX_VALUE) : Integer.parseInt(userInput);
 
             System.out.println("\n-------------------------" +
                     "\nINFORMACJE:" +
-                    "\nPojemność plecaka: " + pojemnosc +
+                    "\nPojemność plecaka: " + capacity +
                     "\nZiarno generatora: " + seed +
-                    "\nLiczba przedmiotów: " + liczbaPrzedmiotow +
+                    "\nLiczba przedmiotów: " + itemCount +
                     "\n-------------------------\n");
 
 
             seed = Math.max(seed, 0);
-            liczbaPrzedmiotow = liczbaPrzedmiotow > 0 ? liczbaPrzedmiotow : Integer.MAX_VALUE;
+            itemCount = itemCount > 0 ? itemCount : Integer.MAX_VALUE;
 
-            Problem problem = new Problem(liczbaPrzedmiotow, seed);
+            Problem problem = new Problem(itemCount, seed);
             System.out.println("Lista dostępnych przedmiotów:\n" + problem.toString());
 
-            Result wynik = problem.solve(pojemnosc);
+            Result wynik = problem.solve(capacity);
             System.out.println("\nRozwiązanie problemu plecakowego:\n" + wynik.toString());
         } catch (Exception e) {
             System.out.println("Wystąpił błąd: " + e.getMessage());
