@@ -8,7 +8,7 @@ import java.util.logging.SimpleFormatter;
 public class FileLogger {
     private final Logger logger = Logger.getLogger("File Logger");
 
-    public FileLogger(){
+    public FileLogger() {
         try {
             FileHandler fileHandler = new FileHandler("Logs.txt", true);
             logger.addHandler(fileHandler);
@@ -19,16 +19,16 @@ public class FileLogger {
         }
     }
 
-    public void Log(String message, int logLevel){
-        switch (logLevel){
+    public void Log(String message, int logLevel) {
+        switch (logLevel) {
             case 1:
                 logger.info(message);
                 break;
-                case 2:
-                    logger.warning(message);
-                    break;
-                    case 3:
-                        logger.severe(message);
+            case 2:
+                logger.warning(message);
+                break;
+            case 3:
+                logger.severe(message);
         }
     }
 }

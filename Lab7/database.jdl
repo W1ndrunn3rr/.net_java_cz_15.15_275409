@@ -1,0 +1,36 @@
+﻿
+enum GameGenre {
+    ACTION, RPG, STRATEGY, SPORTS
+}
+enum ReviewRating {
+    ONE_STAR, THREE_STARS, FIVE_STARS
+}
+
+entity Game {
+    title String required,
+    price Float,
+    releaseDate LocalDate,
+    genre GameGenre required
+}
+entity Developer {
+    name String required,
+    foundedYear Integer
+}
+entity Review {
+    rating ReviewRating required,
+    content String,
+    reviewDate LocalDate
+}
+
+relationship OneToOne {
+    Developer{flagship} to Game{owner}
+}
+relationship OneToMany {
+    Game{gameReviews} to Review{reviewedGame}
+}
+
+relationship ManyToMany {
+    Developer{projects} to Game{team}
+}
+
+paginate all with pagination
